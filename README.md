@@ -8,7 +8,7 @@ SmartTest is a small, portable toolkit combining a testing doctrine, agent skill
 
 AI can produce implementation and tests from the same mistaken interpretation, then report a green result. This toolkit starts from intent, derives verification obligations before test generation, and asks for traceable evidence rather than confidence statements.
 
-Read the launch article: [Your AI-Generated Tests Are Green. What Did They Prove?](docs/INTRODUCING_SMARTTEST.md)
+Read the launch article: [What If You Could Get Your Hands on a Full-Blown Testing Doctrine for Your Entire Repository - for Free?](docs/INTRODUCING_SMARTTEST.md)
 
 > **Code coverage tells you what code your tests executed. Requirement coverage tells you whether you tested what you were supposed to build.**
 
