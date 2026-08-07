@@ -1,163 +1,128 @@
 # What If You Could Get Your Hands on a Full-Blown Testing Doctrine for Your Entire Repository - for Free?
 
-What would change if every developer and every coding agent working in your repository followed the same testing principles?
+AI can now change a repository in minutes.
 
-Not simply the same test runner. Not a target coverage percentage. A proper doctrine: one shared way to turn requirements, risk and uncertainty into evidence.
+But most teams still decide what to test in the same inconsistent way: developer by developer, change by change and deadline by deadline.
 
-Now imagine that doctrine was already written, practical to adopt, able to work with the coding agent you already use and completely free.
+What if every developer and coding agent in your repository could follow one full-blown testing doctrine - already written, practical to implement and completely free?
 
-That is the idea behind SmartTest.
+## Code engineering changed. Testing did not keep up.
 
-But before I tell you what it contains, it is worth asking why a testing doctrine is suddenly so important.
+We have moved beyond autocomplete. Coding agents can inspect a repository, plan a change, edit several files, run commands and prepare a pull request.
 
-## Code engineering has changed
+This is agentic software engineering: people set direction and remain accountable while agents carry out more of the workflow.
 
-AI has rapidly changed how software is built.
+The speed is real. So is the verification problem.
 
-We have moved beyond autocomplete. Coding agents can inspect a repository, plan a change, edit several files, run commands, fix failures and prepare a pull request.
+[DORA's research into AI-assisted software development](https://dora.dev/insights/balancing-ai-tensions/) found increased development velocity alongside a significant verification cost. Time saved creating code is often spent auditing it. More output does not automatically create more confidence.
 
-This is the beginning of Agentic Code Engineering: people set direction and remain accountable, while agents carry out more of the engineering workflow.
+And testing has a human problem too.
 
-The change is real, but it should not be exaggerated. Current agents are not reliable substitutes for experienced engineers on every task. They are, however, producing code faster and taking on more complete pieces of work.
+Writing tests is rarely the work people queue up to do. The feature is visible. The test setup, fixtures, mocks, awkward dependencies and boundary cases are not.
 
-[DORA's research into AI-assisted software development](https://dora.dev/insights/balancing-ai-tensions/) found widespread AI adoption, increased development velocity and a significant verification cost. Time saved during creation is often spent auditing the result. Higher adoption was associated with greater throughput, but also greater delivery instability.
+That does not mean developers do not care about quality. A [survey of 284 professional developers](https://arxiv.org/abs/2309.01154) found that developers were motivated by quality and personal satisfaction, but also found testing mundane and often prioritised other work.
 
-Code generation has accelerated. Confidence has not arrived automatically with it.
-
-## The part of engineering that does not attract a queue
-
-Let us be honest: writing tests can be boring.
-
-That does not mean testing is unimportant or that nobody enjoys it. Many developers care deeply about quality and take real satisfaction from a strong test suite.
-
-But compared with making a feature work, test writing can feel repetitive and less visible. The interesting implementation problem appears to be solved. What remains is setup, fixtures, mocks, awkward dependencies, edge cases and assertions.
-
-A [survey of 284 professional developers](https://arxiv.org/abs/2309.01154) found both sides of this. Developers were motivated by quality and personal satisfaction, but also perceived testing as mundane and tended to prioritise other tasks.
-
-That is a more useful truth than saying developers do not care about tests.
-
-They care about the outcome. The work required to get there competes with features, incidents and deadlines.
-
-AI makes the obvious shortcut irresistible:
+Then AI offers the perfect shortcut:
 
 > Write tests for this change.
 
-A few moments later, the suite is green.
+A few moments later, everything is green.
 
-## More tests do not necessarily mean better evidence
+But what did those tests prove?
 
-There is a problem with asking the same agent to write the code and then test it.
+## A green test can protect the wrong behaviour
 
-If the agent misunderstood the requirement, its implementation and tests can share the same mistake. They agree with each other, but neither agrees with what the user actually needed.
-
-Coverage does not solve that problem. Coverage tells us which code ran. It does not tell us whether we selected the right behaviour, boundary or failure mode.
-
-A [2025 study of LLM-based unit-test generation](https://arxiv.org/abs/2506.02954) reported evaluated suites that achieved 100 percent code coverage but only a 4 percent mutation score. That result belongs to a particular study and benchmark, not every codebase, but the lesson is useful: executing code and detecting faults are not the same thing.
-
-Even when a developer genuinely wants to write a good test, the hard part is not usually the syntax.
-
-The hard part is deciding:
-
-- what the requirement actually means;
-- where the important boundaries are;
-- which failures carry the greatest consequence;
-- what happens across permissions, storage and integrations;
-- which evidence is proportionate;
-- whether the test could detect the defect that matters.
-
-Those decisions vary between people and change under pressure.
-
-That is why we need more than automated test generation.
-
-## What a testing doctrine gives you
-
-A testing doctrine is a shared set of principles for deciding what needs to be verified and what counts as credible evidence.
-
-A useful doctrine should answer questions such as:
-
-- Does verification begin with the requirement or the finished implementation?
-- How should testing depth change with risk and consequence?
-- Which positive, negative, boundary, permission, integration and operational cases must be considered?
-- How is each important claim traced to evidence?
-- How do we show that an important test can detect a relevant defect?
-- What must happen before a suspected root cause can be called proven?
-- How should missing evidence, waivers and uncertainty be reported?
-
-There is no single perfect answer for every organisation. A medical system and a marketing site carry different consequences.
-
-But the foundations do not need to be reinvented for every repository. A strong baseline can be adapted to the product while keeping the underlying engineering obligations intact.
-
-Most importantly, the doctrine needs to appear during the work. If it sits in a wiki waiting to be remembered, it will disappear when the deadline gets close.
-
-## One principle from the doctrine
-
-A full doctrine contains several connected principles. Here is one that can be tried immediately:
-
-> For an important behaviour, demonstrate that the relevant test fails when that behaviour is deliberately broken.
-
-Suppose the requirement says:
+Imagine this requirement:
 
 > Payments of GBP 10,000 or more require secondary approval.
 
-An agent implements approval only for values greater than GBP 10,000. It writes tests for GBP 9,999 and GBP 10,001. Both pass. The code is covered.
+An agent implements approval for values greater than GBP 10,000. It then writes tests for GBP 9,999 and GBP 10,001.
 
-But the exact boundary is wrong.
+Both tests pass. The code is covered. The exact boundary is still wrong.
 
-Now create a test for GBP 10,000 and run it against the faulty rule. It should fail. Restore the correct rule and it should pass.
+This is the uncomfortable part: if the same agent misunderstands the requirement, writes the implementation and writes the tests, all three can agree with each other.
 
-We can now make a precise claim:
+Coverage does not solve that. Coverage tells us which code ran. It does not tell us whether we chose the right behaviour, boundary or failure.
 
-> This test can detect the loss of secondary approval at the GBP 10,000 boundary.
+A [2025 study of LLM-based unit-test generation](https://arxiv.org/abs/2506.02954) reported evaluated suites with 100 percent code coverage but only a 4 percent mutation score. That result belongs to one study and benchmark, but the lesson is useful: executing code and detecting faults are different things.
 
-It does not prove the whole payment system is correct. It proves one useful thing against one relevant defect.
+Even if you want to write a good test, the difficult part is not the syntax. It is deciding:
 
-That is test sensitivity. It is stronger evidence than a green status alone.
+- what the requirement really means;
+- which boundaries and failures matter;
+- what could break outside the edited file;
+- what mocks cannot prove;
+- how much evidence is proportionate to the risk; and
+- when a release claim is genuinely supported.
 
-You would not do this for every line of every application. Apply it proportionately where failure matters: money movement, authorisation, data loss, migrations, external contracts, concurrency, safety controls and regressions that have already reached users.
+That is not a test-generation problem. It is a testing doctrine problem.
 
-The aim is not the largest number of tests. The aim is better evidence.
+## What a testing doctrine should do
 
-## What if the doctrine worked across your repository?
+A testing doctrine is a shared way to turn intent, risk and uncertainty into evidence.
 
-A doctrine becomes much more useful when it is translated into instructions that a coding agent can follow.
+It should guide the work before coding starts, while the change is being made, before it is merged and when something goes wrong.
 
-When the agent plans a change, it should derive verification obligations from intent. When it reviews the diff, it should examine impact beyond the edited files. When it investigates a defect, it should separate observation from inference and require evidence before declaring a root cause.
+A useful doctrine should make a team answer questions such as:
 
-With compatible agents, repository instructions can be loaded automatically when work begins. Focused skills can guide test planning, impact analysis, test review and causal debugging. Agents without a native skill system can follow the same portable Markdown directly.
+- What observable evidence would prove this requirement?
+- Which positive, negative, boundary, permission and failure cases apply?
+- Where does the behaviour already have authoritative tests?
+- Which consumers, contracts, data and operations sit beyond the local diff?
+- Can an important test detect a relevant defect?
+- What is observed, what is inferred and what is still unknown?
+- Who can accept missing evidence, and with what consequence?
 
-This is not automatic correctness. It is automatic access to a consistent engineering discipline at the moments when it is needed.
+The answers will differ between a medical system and a marketing site. The underlying discipline does not need to be reinvented in every repository.
 
-That is the gap SmartTest is designed to fill.
+Most importantly, the doctrine has to appear during the work. A document hidden in a wiki will disappear when the deadline gets close.
 
-## What you get with SmartTest
+## One principle you can use immediately
 
-SmartTest is DevGenie's free, open-source testing doctrine for AI-assisted software development.
+Take the payment boundary again.
 
-It is a ready-made repository containing:
+Add a test for exactly GBP 10,000. Run it against the faulty greater-than rule. It should fail. Restore the correct greater-than-or-equal rule. It should pass.
 
-- the complete testing doctrine;
-- repository-level guidance for coding agents;
-- workflows for test planning, change impact, test review and causal debugging;
-- requirement-to-evidence templates;
-- an evidence-based Definition of Done;
-- a release checklist;
-- documented and executable examples;
-- setup guidance for several coding agents.
+Now you can make a precise claim:
 
-It is portable Markdown, not another test framework, hosted platform or paid dashboard. It works alongside the test runners, scanners, review tools and CI systems a team already uses.
+> This test detects the loss of secondary approval at the GBP 10,000 boundary.
 
-It is licensed under Apache 2.0. You can inspect it, adapt it and use it across your repositories.
+It does not prove the payment system is correct. It proves one useful thing against one relevant defect.
 
-Does that sound almost too good to be true?
+That is test sensitivity. It is stronger than saying the suite is green.
 
-There is no magic and no claim of guaranteed correctness. What you get is a serious body of testing discipline that has already been turned into practical agent instructions, templates and workflows.
+You would not mutate every line of every application. Apply this in proportion to consequence: money movement, authorisation, data loss, migrations, external contracts, concurrency and regressions that have already reached users.
 
-You do not need a transformation programme to evaluate it. Start with one real, bounded change. Within a few minutes, your agent can be using the first workflow. Then judge SmartTest by the evidence it helps you uncover.
+The aim is not more test theatre. It is better evidence.
 
-If it reveals a risk or uncertainty you would otherwise have missed, keep the useful part. If it creates ceremony without better evidence, reject that part.
+## The ready-made implementation
 
-Evidence over assertion applies to SmartTest too.
+This is why I built SmartTest.
 
-## Get the complete doctrine
+SmartTest is DevGenie's free, open-source testing doctrine for AI-assisted software development. It turns the principles into portable repository instructions, focused agent workflows, templates, release checks and worked examples.
 
-> Send me a connection request and add **SMARTTEST** to the note. Once connected, I'll send you the repository and quick-start guide. You can try the first workflow on a real change within minutes.
+The useful part is what it changes in the engineering workflow:
+
+- Before coding, the agent derives what must be proven from the requirement.
+- During implementation, it traces risk beyond the files it edited.
+- Before merging, it judges the evidence instead of trusting test count or coverage.
+- During debugging, it stops a plausible explanation being promoted to a proven cause without a prediction and regression evidence.
+- At release, missing proof and waivers stay visible.
+
+"Repository-wide" means the same guidance is available across work in the repository. It does not mean every behaviour is automatically covered.
+
+"Automatic" means compatible coding agents can load the instructions at the relevant moment. It does not mean automatic correctness.
+
+SmartTest works alongside the test runners, CI systems, scanners and review tools you already use. It is portable Markdown, licensed under Apache 2.0, not a test framework, hosted platform or DevGenie product implementation.
+
+And because evidence over assertion must apply to SmartTest too, the repository includes an adversarial report card. It shows the scores, the defects the review found, what was fixed and what remains unproven. You can run the deterministic checks yourself.
+
+No magic. No guarantee of correctness. No transformation programme.
+
+Try it on one real, bounded change. You can have the first workflow running within a few minutes after installation. If it reveals a risk or uncertainty you would otherwise have missed, keep it. If it adds ceremony without better evidence, challenge it.
+
+## Get SmartTest
+
+SmartTest is public and completely free.
+
+Comment **SMARTTEST** below and send me a connection request. Once connected, I'll DM you the repository and quick-start guide. You can try the first workflow on a real change within minutes.
