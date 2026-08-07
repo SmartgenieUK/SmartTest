@@ -2,6 +2,18 @@
 
 SmartTest's canonical skills live in [`skills/`](../skills/). They use the open `SKILL.md` convention and remain readable as ordinary Markdown. Native discovery locations differ by agent, so install only the skills you need in the target code repository.
 
+For adapters and generic agents, install the portable SmartTest material under a `.smarttest/` namespace. This prevents collisions with an application's own `skills/`, `templates/`, or `checklists/` directories:
+
+```powershell
+$smartTestPath = "C:\path\to\SmartTest"
+New-Item -ItemType Directory -Force .smarttest | Out-Null
+Copy-Item -Recurse "$smartTestPath\skills" .smarttest\skills
+Copy-Item -Recurse "$smartTestPath\templates" .smarttest\templates
+Copy-Item -Recurse "$smartTestPath\checklists" .smarttest\checklists
+```
+
+The commands assume `.smarttest/skills` does not already exist. Review and merge an existing installation rather than overwriting local policy.
+
 The examples below use copies for portability. Symlinks are also reasonable when your operating system, source-control policy, and agent support them.
 
 ## OpenAI Codex
@@ -40,13 +52,16 @@ Official reference: [Claude Code skills](https://code.claude.com/docs/en/skills)
 
 ## Cursor
 
-Cursor project rules use `.cursor/rules/*.mdc`. Copy [`adapters/cursor/smarttest.mdc`](../adapters/cursor/smarttest.mdc) into the target repository as `.cursor/rules/smarttest.mdc`, then keep the canonical SmartTest `skills/` directory available in that repository or adjust the paths in the adapter.
+Cursor project rules use `.cursor/rules/*.mdc`. Copy [`adapters/cursor/smarttest.mdc`](../adapters/cursor/smarttest.mdc) into the target repository as `.cursor/rules/smarttest.mdc`, then install the portable material under `.smarttest/` as shown above.
 
 ```powershell
 $smartTestPath = "C:\path\to\SmartTest"
 New-Item -ItemType Directory -Force .cursor\rules | Out-Null
 Copy-Item "$smartTestPath\adapters\cursor\smarttest.mdc" .cursor\rules\smarttest.mdc
-Copy-Item -Recurse "$smartTestPath\skills" .\skills
+New-Item -ItemType Directory -Force .smarttest | Out-Null
+Copy-Item -Recurse "$smartTestPath\skills" .smarttest\skills
+Copy-Item -Recurse "$smartTestPath\templates" .smarttest\templates
+Copy-Item -Recurse "$smartTestPath\checklists" .smarttest\checklists
 ```
 
 In chat, ask Cursor to use the relevant SmartTest workflow and name the requirement, diff, or defect. You can also reference the rule explicitly with `@Cursor Rules`. The adapter points Cursor to the canonical skill files instead of duplicating their contents.
@@ -55,13 +70,16 @@ Official reference: [Cursor rules](https://docs.cursor.com/context/rules-for-ai)
 
 ## GitHub Copilot
 
-GitHub Copilot supports repository-wide instructions in `.github/copilot-instructions.md`. Copy [`adapters/copilot/copilot-instructions.md`](../adapters/copilot/copilot-instructions.md) there and keep the canonical SmartTest `skills/` directory available:
+GitHub Copilot supports repository-wide instructions in `.github/copilot-instructions.md`. Copy [`adapters/copilot/copilot-instructions.md`](../adapters/copilot/copilot-instructions.md) there and install the portable material under `.smarttest/`:
 
 ```powershell
 $smartTestPath = "C:\path\to\SmartTest"
 New-Item -ItemType Directory -Force .github | Out-Null
 Copy-Item "$smartTestPath\adapters\copilot\copilot-instructions.md" .github\copilot-instructions.md
-Copy-Item -Recurse "$smartTestPath\skills" .\skills
+New-Item -ItemType Directory -Force .smarttest | Out-Null
+Copy-Item -Recurse "$smartTestPath\skills" .smarttest\skills
+Copy-Item -Recurse "$smartTestPath\templates" .smarttest\templates
+Copy-Item -Recurse "$smartTestPath\checklists" .smarttest\checklists
 ```
 
 Ask Copilot coding agent or chat to read the relevant `skills/<name>/SKILL.md` before acting. Copilot coding agent can also use `AGENTS.md`; the nearest applicable file takes precedence, so copy SmartTest's compact rules into the target repository only when they match local policy.
@@ -90,22 +108,28 @@ done
 # Cursor
 mkdir -p .cursor/rules
 cp "$SMARTTEST_PATH/adapters/cursor/smarttest.mdc" .cursor/rules/smarttest.mdc
-cp -R "$SMARTTEST_PATH/skills" ./skills
+mkdir -p .smarttest
+cp -R "$SMARTTEST_PATH/skills" .smarttest/skills
+cp -R "$SMARTTEST_PATH/templates" .smarttest/templates
+cp -R "$SMARTTEST_PATH/checklists" .smarttest/checklists
 
 # GitHub Copilot
 mkdir -p .github
 cp "$SMARTTEST_PATH/adapters/copilot/copilot-instructions.md" .github/copilot-instructions.md
-cp -R "$SMARTTEST_PATH/skills" ./skills
+mkdir -p .smarttest
+cp -R "$SMARTTEST_PATH/skills" .smarttest/skills
+cp -R "$SMARTTEST_PATH/templates" .smarttest/templates
+cp -R "$SMARTTEST_PATH/checklists" .smarttest/checklists
 ```
 
 These commands assume the destination does not already contain a SmartTest installation. Review and merge existing rules or skills instead of overwriting local policy.
 
 ## Generic coding agents
 
-No native skill mechanism is required. Use a direct prompt:
+No native skill mechanism is required. Copy `skills/`, `templates/`, and `checklists/` into `.smarttest/` using the portable installation above, then use a direct prompt:
 
 ```text
-Read skills/test-impact/SKILL.md in full and follow it for the current diff.
+Read .smarttest/skills/test-impact/SKILL.md in full and follow it for the current diff.
 Treat repository requirements and existing tests as authoritative inputs.
 Do not implement unrelated changes. Report missing evidence honestly.
 ```
