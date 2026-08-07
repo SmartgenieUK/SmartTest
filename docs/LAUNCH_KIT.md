@@ -55,7 +55,7 @@ The core idea is simple: derive verification from intent, not from the implement
 
 SmartTest also asks teams to demonstrate that important tests can fail, distinguish coverage from requirement evidence, and report missing evidence honestly.
 
-If you use AI to write or review production code, comment **SMARTTEST** below and I’ll DM you the repository and the shortest path for trying it on one real change.
+Comment **SMARTTEST** and send me a connection request. Once connected, I’ll DM you the repository and starting workflow.
 
 If it exposes an obligation you would have missed, tell us. If it creates ceremony without evidence, tell us that too.
 
@@ -69,7 +69,7 @@ It is the wrong test that passes alongside the wrong implementation because both
 
 We built SmartTest to put intent, risk, traceability, test sensitivity, and honest evidence back into AI-assisted development.
 
-Comment **SMARTTEST** and I’ll DM you the repository and the ten-minute starting workflow.
+Comment **SMARTTEST** and send me a connection request. Once connected, I’ll DM you the repository and starting workflow.
 
 ## X / Bluesky launch thread
 
@@ -151,7 +151,7 @@ Comment **SMARTTEST** and I’ll DM you the repository and the shortest starting
 
 Use one primary public call to action:
 
-> Comment **SMARTTEST** and I’ll DM you the repository and the ten-minute starting workflow.
+> Comment **SMARTTEST** and send me a connection request. Once connected, I’ll DM you the repository and starting workflow.
 
 After the comment, reply publicly so the person knows to check their messages, then continue privately.
 
@@ -162,13 +162,17 @@ After the comment, reply publicly so the person knows to check their messages, t
 
 ## Comment-to-DM fulfilment
 
-**Public comment reply**
+**LinkedIn public comment reply**
 
-> Thanks—I've sent it to you. Check your DMs.
+> Thanks—I’ve sent you a connection request. Accept it and I’ll message it over.
 
-Do not place the repository link in the public reply.
+Do not place the repository link in the public reply. Wait until the connection is accepted before sending the private message.
 
-**Private DM**
+**LinkedIn connection request note**
+
+> Thanks for commenting SMARTTEST. Connect and I’ll send you the repository and starting workflow.
+
+**Private DM after connection**
 
 > Thanks for your interest. Which coding agent and primary language do you use? Here is SmartTest: https://github.com/SmartgenieUK/SmartTest. Start with the five-minute guide in the README, then use `test-plan` on one real, bounded requirement.
 
@@ -213,8 +217,8 @@ No. SmartTest is a standalone open-source methodology. DevGenie is the originati
 
 1. Keep the repository public and verify every link used in private fulfilment.
 2. Publish the full article on the chosen primary channel without exposing the repository URL in the promotional post.
-3. Publish the LinkedIn post and short social thread with the single comment `SMARTTEST` call to action.
-4. Acknowledge each qualifying comment publicly, then DM the repository, the shortest relevant starting path, and one question about the developer’s agent or stack.
+3. Publish the LinkedIn post with the `SMARTTEST` comment plus connection-request call to action; keep platform-specific wording for other social channels.
+4. Acknowledge each qualifying LinkedIn comment publicly, send a connection request, and wait for acceptance before privately sending the repository, the shortest relevant starting path, and one question about the developer’s agent or stack.
 5. Share in relevant developer communities using community-specific context; do not cross-post identical promotional text indiscriminately.
 6. Track conversations, useful objections, attempted trials, and concrete adoption failures—not vanity impressions alone.
 7. Defer Hacker News until a direct-link public launch is appropriate.
