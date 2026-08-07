@@ -1,23 +1,11 @@
-"""Deliberately faulty boundary mutant; use only to demonstrate test sensitivity."""
+"""Deliberately faulty boundary mutant; use only for sensitivity evidence."""
 
-from decimal import Decimal
-
-from payment_approval import (
-    APPROVAL_THRESHOLD,
-    ApprovalUnavailable,
-    DuplicateDecision,
-    PaymentApprovalService as CorrectService,
-)
+from payment_approval import *  # noqa: F401,F403 - re-export teaching API
+from payment_approval import APPROVAL_THRESHOLD, PaymentApprovalService as CorrectService
 
 
 class PaymentApprovalService(CorrectService):
-    @staticmethod
-    def requires_secondary_approval(amount):
-        # Deliberate defect: the requirement says “£10,000 or more”.
-        return Decimal(amount) > APPROVAL_THRESHOLD
-
-__all__ = [
-    "ApprovalUnavailable",
-    "DuplicateDecision",
-    "PaymentApprovalService",
-]
+    @classmethod
+    def requires_secondary_approval(cls, amount):
+        # Deliberate defect: exactly GBP 10,000 incorrectly bypasses approval.
+        return cls._parse_amount(amount) > APPROVAL_THRESHOLD
