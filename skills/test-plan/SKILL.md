@@ -47,7 +47,7 @@ State what could not be inspected.
 13. Define expected, reproducible evidence and any required independent derivation or review.
 14. Record exclusions and N/A decisions with rationale.
 
-Use the [Test Plan Template](../../templates/TEST_PLAN_TEMPLATE.md) when writing a repository artefact.
+When it is installed, use SmartTest's `templates/TEST_PLAN_TEMPLATE.md` for a repository artefact. If the template was not copied with the skill, use the required output structure below; do not block the workflow.
 
 ## Required output
 
