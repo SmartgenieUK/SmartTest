@@ -178,3 +178,37 @@ No question blocks the local v0.1 deliverable. A separate `NOTICE` or trademark-
 2. Package or automate skill installation only if copy-based adoption produces repeated friction; keep portable Markdown canonical.
 3. Add a lightweight committed link and structure checker only if repeated releases make the current validation costly.
 4. Gather adopter feedback before adding CI integrations, additional language examples, or product features.
+## Post-build adversarial review and remediation
+
+On 2026-08-07, two fresh-context AI coding agents were commissioned to challenge the repository rather than confirm it. One reviewed developer adoption and portability; the other tested the doctrine against its own standards. These were independent reasoning contexts, but they were maintainer-commissioned AI reviews, not external certification.
+
+The pre-remediation assessments were B- / 6.8 for adoption and a conditional 6.7 for doctrine fidelity. Material findings included a copied-skill template path that could not resolve, incomplete generic-agent packaging, unreplayable behavioural evidence, weak waiver semantics, incomplete traceability provenance, and an executable example that did not implement several acceptance obligations it claimed to illustrate.
+
+The remediation added:
+
+- a namespaced `.smarttest/` portable installation for Cursor, Copilot, and generic agents;
+- a safe copied-skill fallback when an optional template is absent;
+- a ratified, navigable normative doctrine baseline;
+- explicit design-decision and evidence-provenance traceability fields;
+- non-waivable release obligations and independent human authority for high-consequence exceptions;
+- a ten-test payment example covering the inclusive threshold, distinct authorized approval, audit records, retained pending state, dependency failure, no premature execution, idempotency, invalid amounts, and conflicting keys;
+- executable traceability and verification records;
+- two preserved adversarial audit records and a public report card; and
+- a standard-library repository verifier plus GitHub Actions.
+
+Final deterministic command:
+
+```sh
+python scripts/verify_repo.py
+```
+
+Observed result:
+
+- 33 Markdown files checked for local links and fenced-code structure;
+- four skill frontmatter blocks checked;
+- correct payment example: 10/10 tests passed; and
+- deliberate `>=` to `>` mutant: exactly one expected exact-threshold test failed.
+
+The remaining limitations are explicit in [REPORT_CARD.md](REPORT_CARD.md): the behavioural agent probes do not have a complete replay bundle; vendor discovery has not been exercised across every UI/version; the executable example uses in-memory collaborators; and independent multi-repository adoption evidence is not yet available.
+
+This post-build review does not expand SmartTest into a DevGenie product. It makes the v0.1 evidence more inspectable and the adoption path less fragile.
