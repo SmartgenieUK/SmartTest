@@ -22,7 +22,7 @@ Use these in private messages after someone comments `SMARTTEST`, or when someon
 
 - Repository: https://github.com/SmartgenieUK/SmartTest
 - Article: https://github.com/SmartgenieUK/SmartTest/blob/main/docs/INTRODUCING_SMARTTEST.md
-- Adoption trial: https://github.com/SmartgenieUK/SmartTest/blob/main/docs/ADOPTION_GUIDE.md#ten-minute-trial
+- Adoption trial: https://github.com/SmartgenieUK/SmartTest/blob/main/docs/ADOPTION_GUIDE.md#a-bounded-trial
 - Executable boundary example: https://github.com/SmartgenieUK/SmartTest/tree/main/examples/payment-approval-python
 - Behavioural evaluation: https://github.com/SmartgenieUK/SmartTest/blob/main/EVALUATION_REPORT.md
 - Adversarial report card: https://github.com/SmartgenieUK/SmartTest/blob/main/REPORT_CARD.md
