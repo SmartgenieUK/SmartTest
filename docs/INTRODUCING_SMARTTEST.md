@@ -1,20 +1,27 @@
 # Your AI-Generated Tests Are Green. What Did They Prove?
 
-Every engineering team has a testing doctrine, even if nobody has written it down.
+Testing is meant to be repeatable. The way teams decide what to test often is not.
 
-It lives in the decisions people make every day. What counts as enough testing? Which failures matter? When is a green pipeline good enough? What evidence does a reviewer need before approving a change?
+Give the same change to two developers and you may get two very different answers. One checks the happy path. Another thinks about boundaries, permissions and failure recovery. A third relies on coverage and a green pipeline because the deadline is close.
 
-When those answers are not explicit, the doctrine becomes whatever the team happens to do under pressure.
+The variation is rarely caused by a lack of care. Most teams have never agreed a practical testing doctrine that says what good evidence looks like.
 
-AI-assisted development makes that risky. A coding agent can turn an unclear requirement into code and tests in minutes. If its interpretation is wrong, the implementation and the tests can still agree perfectly.
+AI-assisted development makes that inconsistency faster. A coding agent can turn an unclear requirement into code and tests in minutes. If its interpretation is wrong, the implementation and the tests can still agree perfectly.
 
 The pipeline is green. The software is wrong.
 
-A written testing doctrine gives developers, reviewers and coding agents the same rules for deciding what needs to be proven.
+Wouldn't it be useful if a team could start with a strong testing doctrine, make it easy to adopt and have it brought into the development workflow automatically?
 
+That is a more interesting goal than simply asking AI to generate more tests.
+
+Every engineering team already has a testing doctrine, even if nobody has written it down. It lives in daily decisions: what counts as enough testing, which failures matter, when a green pipeline is good enough and what evidence a reviewer needs before approving a change.
+
+When those decisions are explicit, developers, reviewers and coding agents can work from the same rules. When they are not, the doctrine becomes whatever the team happens to do under pressure.
 ## What should a testing doctrine contain?
 
-A useful doctrine is not a list of preferred tools. It is a set of engineering principles that remain valid when the language, framework or agent changes.
+There probably is not one perfect doctrine for every product. A medical system and a marketing website do not carry the same consequences. But teams should not have to invent the foundations from scratch.
+
+A strong baseline doctrine should be clear, risk-based, evidence-led, portable across tools and simple enough to use on a real change. Most importantly, it should be operational. A document that nobody consults will not make testing more consistent.
 
 It should answer questions such as:
 
@@ -98,11 +105,26 @@ A testing doctrine gives the agent a different job. It must derive obligations f
 
 That does not make AI-generated code trustworthy by default. It makes the route to a decision more visible and reviewable.
 
+## A doctrine should turn up automatically
+
+A testing doctrine will not improve consistency if developers have to remember a long document every time they change code.
+
+It should appear at the point of work.
+
+For AI-assisted development, that means turning principles into repository instructions and focused agent workflows. When the agent plans a change, it should ask about intent, risk and boundaries. When it reviews a diff, it should check impact and evidence. When it investigates a defect, it should distinguish a plausible explanation from a proven cause.
+
+With compatible coding agents, repository instructions can be loaded automatically when work begins. Focused skills can then guide test planning, impact analysis, test review and causal debugging. Agents without a native skill system can still follow the same portable Markdown instructions directly.
+
+The automation is in applying the doctrine consistently at the right moments. It does not remove engineering judgement, run every testing tool by itself or guarantee that a change is correct.
+
+That boundary matters. The purpose is to make good questions difficult to forget, not to replace the people accountable for the answer.
 ## A ready-made implementation of the rest
 
 Test sensitivity is only one part of a complete testing doctrine.
 
-SmartTest is DevGenie's ready-made, open-source implementation of the wider discipline. It includes:
+SmartTest is DevGenie's ready-made, open-source implementation of the wider discipline. It packages the principles as practical repository guidance, agent skills, templates and examples, so a team can start with a working baseline instead of writing its own doctrine from a blank page.
+
+It includes:
 
 - the full testing doctrine;
 - a workflow for deriving test obligations before implementation;
@@ -114,7 +136,7 @@ SmartTest is DevGenie's ready-made, open-source implementation of the wider disc
 - worked and executable examples;
 - setup guidance for several coding agents.
 
-It is portable Markdown rather than a testing framework or hosted product. Teams can use the whole method or adopt the smallest part that improves a real decision.
+It is portable Markdown rather than a testing framework or hosted product. Once configured for a coding agent, it can bring the doctrine into normal planning, implementation, review and debugging work. Teams can use the whole method or adopt the smallest part that improves a real decision.
 
 The best way to judge it is not to agree with the principles. Try it on one bounded change and see whether it exposes a risk or uncertainty that the normal workflow missed.
 
