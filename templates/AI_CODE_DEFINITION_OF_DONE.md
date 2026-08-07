@@ -1,6 +1,6 @@
 # Definition of Done for Behaviour-Bearing AI-Assisted Changes
 
-A change is done only when all applicable statements are evidenced. Mark an exception **N/A with rationale** or **WAIVED** with consequence, compensating control, authority, and remediation condition.
+A change is done only when all applicable statements are evidenced. Mark an exception **N/A with rationale** or **WAIVED** with consequence, compensating control, named accountable human authority, and remediation condition. An agent cannot approve its own exception. A waiver records accepted exposure; it does not turn a blocking obligation into done.
 
 - [ ] Intent, intended outcome, and acceptance criteria are understood and testable.
 - [ ] Testing is explicitly addressed; required evidence or a justified alternative is recorded.
@@ -16,7 +16,9 @@ A change is done only when all applicable statements are evidenced. Mark an exce
 - [ ] Production healthy signals, failure signals, validation period, and rollback/remediation triggers are defined where relevant.
 - [ ] Accepted exceptions have an explicit waiver and accountable authority.
 
-**Decision:** PASS / FAIL / ESCALATE / WAIVED
+**Decision:** PASS / FAIL / ESCALATE
+
+PASS requires all non-waivable obligations to be satisfied and no blocking failure or missing evidence. Otherwise use FAIL or ESCALATE.
 
 **Evidence and exceptions:**
 
