@@ -10,6 +10,8 @@ AI can produce implementation and tests from the same mistaken interpretation, t
 
 Read the launch article: [What If You Could Get Your Hands on a Full-Blown Testing Doctrine for Your Entire Repository - for Free?](docs/INTRODUCING_SMARTTEST.md)
 
+Before trusting the pitch, read the [v0.1 report card](REPORT_CARD.md). Two adversarial reviews scored the pre-remediation repository at 6.7–6.8/10, exposed material defects, and drove fixes. The current B / 7.7 assessment names what is verified and what is still unproven.
+
 > **Code coverage tells you what code your tests executed. Requirement coverage tells you whether you tested what you were supposed to build.**
 
 The toolkit improves testing discipline; it does not guarantee correctness.
@@ -21,7 +23,7 @@ The toolkit improves testing discipline; it does not guarantee correctness.
 - Technical leads adopting a lightweight, tool-independent assurance method.
 - Teams that want more rigour without introducing a testing platform.
 
-## Five-minute start
+## First workflow
 
 1. Read the [adoption guide](docs/ADOPTION_GUIDE.md) and choose one real, bounded change.
 2. Follow the [agent setup](docs/AGENT_SETUP.md) for Codex, Claude Code, Cursor, Copilot, or a generic agent.
@@ -47,8 +49,8 @@ See the [documented payment-approval example](examples/payment-approval/README.m
 Each skill has one primary job and is written as portable Markdown. Native discovery paths differ by agent; use the [verified setup guide](docs/AGENT_SETUP.md) to install them. If your agent has no skill mechanism, give it repository access and instruct it directly, for example:
 
 ```text
-Read skills/test-plan/SKILL.md and follow it for this requirement.
-Write the result using templates/TEST_PLAN_TEMPLATE.md.
+Read .smarttest/skills/test-plan/SKILL.md and follow it for this requirement.
+Write the result using .smarttest/templates/TEST_PLAN_TEMPLATE.md.
 Do not implement the change yet.
 ```
 
@@ -79,6 +81,6 @@ Start with Markdown in the normal development workflow. Automate only after the 
 
 ## Scope and boundaries
 
-SmartTest v0.1 is not a test framework, DevGenie product implementation, evidence database, dashboard, CI integration, IDE extension, agent installer, or commercial-tool integration. It provides no correctness guarantee and mandates no vendor.
+SmartTest v0.1 is not a test framework, DevGenie product implementation, evidence database, dashboard, IDE extension, agent installer, or commercial-tool integration. Its CI verifies this repository's deterministic evidence; it is not a general CI product. SmartTest provides no correctness guarantee and mandates no vendor.
 
-Contributions are welcome under the constraints in [CONTRIBUTING.md](CONTRIBUTING.md). SmartTest is licensed under the [Apache License 2.0](LICENSE). See the [build report](BUILD_REPORT.md) for delivered scope and verification evidence.
+Contributions are welcome under the constraints in [CONTRIBUTING.md](CONTRIBUTING.md). SmartTest is licensed under the [Apache License 2.0](LICENSE). See the [report card](REPORT_CARD.md), [behavioural evaluation](EVALUATION_REPORT.md), and [build report](BUILD_REPORT.md) for evidence and limitations.
