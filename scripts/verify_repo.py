@@ -102,7 +102,9 @@ def main() -> int:
         mutant.returncode == 0
         or "Ran 10 tests" not in mutant_output
         or "FAILED (failures=1)" not in mutant_output
-        or expected_test not in mutant_output
+        or not re.search(
+            rf"^FAIL: {re.escape(expected_test)}\b", mutant_output, re.MULTILINE
+        )
     ):
         errors.append("mutant did not produce the one expected boundary failure")
 
