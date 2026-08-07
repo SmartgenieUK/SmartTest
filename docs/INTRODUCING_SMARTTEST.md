@@ -115,7 +115,7 @@ The useful part is what it changes in the engineering workflow:
 
 SmartTest works alongside the test runners, CI systems, scanners and review tools you already use. It is portable Markdown, licensed under Apache 2.0, not a test framework, hosted platform or DevGenie product implementation.
 
-And because evidence over assertion must apply to SmartTest too, the repository includes an adversarial report card. It shows the scores, the defects the review found, what was fixed and what remains unproven. You can run the deterministic checks yourself.
+And because evidence over assertion must apply to SmartTest too, the repository includes an adversarial report card. It shows the scores, the defects the review found, what was fixed and what remains unproven. One early evaluation found that the causal-debugging workflow could promote a replacement explanation using evidence already observed. We tightened it to require a new, prospectively recorded prediction before a root cause can be called proven. You can run the deterministic checks yourself.
 
 No magic. No guarantee of correctness. No transformation programme.
 
