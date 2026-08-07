@@ -1,6 +1,6 @@
 # SmartTest Launch Kit
 
-This file contains reusable promotional copy for the public [SmartTest repository](https://github.com/SmartgenieUK/SmartTest) and its launch article, [Your AI-Generated Tests Are Green. What Did They Prove?](INTRODUCING_SMARTTEST.md).
+This file contains reusable promotional copy for SmartTest and its launch article, [Your AI-Generated Tests Are Green. What Did They Prove?](INTRODUCING_SMARTTEST.md). The public launch uses a DM-first call to action: initial posts do not include the repository URL.
 
 ## Core positioning
 
@@ -12,9 +12,11 @@ This file contains reusable promotional copy for the public [SmartTest repositor
 
 **Boundary:** SmartTest is not a test framework, hosted platform, DevGenie product implementation, or correctness guarantee.
 
-**Primary call to action:** Try SmartTest on one real, bounded change and report whether it exposed a verification obligation you would otherwise have missed.
+**Primary call to action:** DM `SMARTTEST` to receive the repository and a focused starting point for one real, bounded change.
 
-## Link set
+## Private fulfilment links
+
+Use these in individual replies after someone sends the `SMARTTEST` keyword. Do not paste them into the initial promotional post.
 
 - Repository: https://github.com/SmartgenieUK/SmartTest
 - Article: https://github.com/SmartgenieUK/SmartTest/blob/main/docs/INTRODUCING_SMARTTEST.md
@@ -39,7 +41,7 @@ AI can generate an implementation and its tests from the same mistaken interpret
 
 The pipeline goes green. Coverage looks healthy. The defect remains.
 
-Today we are publishing **SmartTest**—DevGenie's portable, evidence-first testing discipline for AI-assisted software development.
+Today we are opening access to **SmartTest**—DevGenie's portable, evidence-first testing discipline for AI-assisted software development.
 
 It is not another test framework or quality score. It is an open-source set of:
 
@@ -53,11 +55,9 @@ The core idea is simple: derive verification from intent, not from the implement
 
 SmartTest also asks teams to demonstrate that important tests can fail, distinguish coverage from requirement evidence, and report missing evidence honestly.
 
-Try it on one real, bounded change. If it exposes an obligation you would have missed, tell us. If it creates ceremony without evidence, tell us that too.
+If you use AI to write or review production code, DM me **SMARTTEST**. I’ll send you the repository and the shortest path for trying it on one real change.
 
-Repository: https://github.com/SmartgenieUK/SmartTest
-
-Article: https://github.com/SmartgenieUK/SmartTest/blob/main/docs/INTRODUCING_SMARTTEST.md
+If it exposes an obligation you would have missed, tell us. If it creates ceremony without evidence, tell us that too.
 
 #SoftwareTesting #AIEngineering #DeveloperTools #OpenSource #QualityEngineering
 
@@ -69,7 +69,7 @@ It is the wrong test that passes alongside the wrong implementation because both
 
 We built SmartTest to put intent, risk, traceability, test sensitivity, and honest evidence back into AI-assisted development.
 
-Try it on one change: https://github.com/SmartgenieUK/SmartTest
+DM me **SMARTTEST** and I’ll send you the repository and the ten-minute starting workflow.
 
 ## X / Bluesky launch thread
 
@@ -81,7 +81,7 @@ An agent can implement the wrong interpretation and generate tests that confirm 
 
 We built SmartTest to address that failure mode.
 
-https://github.com/SmartgenieUK/SmartTest
+DM **SMARTTEST** and I’ll send you the repository.
 
 **Post 2**
 
@@ -116,24 +116,11 @@ Try SmartTest on one real change—not a transformation programme.
 
 If it reveals an obligation you would have missed, keep the useful part. If it does not, reject the ceremony.
 
-Read the argument: https://github.com/SmartgenieUK/SmartTest/blob/main/docs/INTRODUCING_SMARTTEST.md
+If you want to test the method against a real change, DM **SMARTTEST** and I’ll send the repository and starting workflow.
 
 ## Hacker News
 
-**Title:** Show HN: SmartTest – evidence-first testing skills for AI coding agents
-
-**Submission text:**
-
-We built SmartTest after repeatedly seeing a specific AI-assisted development risk: an agent can generate an implementation and tests from the same mistaken interpretation, leaving a persuasive green pipeline.
-
-SmartTest is a small Apache-2.0 repository containing a testing doctrine, four portable agent skills, templates, a release checklist, and worked examples. It is deliberately not a test runner or hosted product.
-
-The most opinionated parts are deriving verification from intent before implementation, distinguishing requirement coverage from code coverage, demonstrating that important tests can fail, and withholding “proven root cause” until a prospective prediction and pre-fix regression support it.
-
-We forward-tested the skills and documented a causal-debugging failure we found and corrected. Critical feedback on where the method creates ceremony instead of evidence would be particularly useful.
-
-Repository: https://github.com/SmartgenieUK/SmartTest
-
+Defer Hacker News during the DM-first phase. Hacker News has no native direct-message workflow, and a Show HN submission is strongest when it links directly to something people can inspect. Revisit it for a later open-link launch rather than forcing the lead-capture pattern onto the community.
 ## Reddit / developer community post
 
 **Suggested title:** We open-sourced the testing discipline we use to challenge AI-generated code and tests
@@ -150,7 +137,7 @@ It does not require a testing service and does not claim to guarantee correctnes
 
 I would value concrete criticism from people using coding agents in real repositories—particularly examples where the workflow is too heavy or misses a material risk.
 
-https://github.com/SmartgenieUK/SmartTest
+DM me **SMARTTEST** and I’ll send you the repository and the shortest starting workflow for your coding agent.
 
 ## Dev.to / blog metadata
 
@@ -161,12 +148,28 @@ https://github.com/SmartgenieUK/SmartTest
 
 ## Calls to action
 
-- Try the ten-minute workflow on one real change.
-- Run the payment-boundary mutant and inspect what the failing test actually proves.
-- Use `test-review` against a green suite you do not fully trust.
-- Give `debug-causal` a failed prediction and see whether it withholds proof.
-- Open an issue with a case where SmartTest missed a risk or created empty ceremony.
-- Star the repository only if you want to follow its development.
+Use one primary public call to action:
+
+> DM **SMARTTEST** and I’ll send you the repository and the ten-minute starting workflow.
+
+After the DM, invite the developer to:
+
+- try the workflow on one real, bounded change;
+- run the payment-boundary mutant and inspect what the failing test proves;
+- use `test-review` against a green suite they do not fully trust;
+- report a case where SmartTest missed a risk or created empty ceremony.
+
+## DM fulfilment
+
+**First reply**
+
+> Thanks for reaching out. Which coding agent and primary language do you use? Here is SmartTest: https://github.com/SmartgenieUK/SmartTest. Start with the five-minute guide in the README, then use `test-plan` on one real, bounded requirement.
+
+**Follow-up after several days**
+
+> Did SmartTest reveal a verification obligation you would otherwise have missed? A concrete failure or friction point is more useful to us than a general endorsement.
+
+Record only the minimum contact and adoption information you genuinely need. Do not add people to marketing lists without consent.
 
 ## Response hooks
 
@@ -194,14 +197,18 @@ No. SmartTest is a standalone open-source methodology. DevGenie is the originati
 - Do not describe behavioural probes as broad scientific validation.
 - Do not imply endorsement by agent vendors or future evidence providers.
 - Keep promotional claims traceable to repository artefacts.
+- Do not place repository or GitHub article URLs in initial social posts; fulfil them after the `SMARTTEST` DM.
+- Be clear that SmartTest is public and open source; do not imply scarcity, exclusivity, or private access.
 - Invite falsification and concrete criticism, not just stars.
 - Disclose any future affiliate or commercial relationship next to the relevant recommendation.
 
 ## Suggested launch sequence
 
-1. Publish the repository and verify every public link.
-2. Publish the full article on the chosen primary channel with the GitHub file as canonical source.
-3. Post the LinkedIn version and short social thread.
-4. Submit to Hacker News only when someone can participate in the discussion.
+1. Keep the repository public and verify every link used in private fulfilment.
+2. Publish the full article on the chosen primary channel without exposing the repository URL in the promotional post.
+3. Publish the LinkedIn post and short social thread with the single `SMARTTEST` DM call to action.
+4. Reply manually with the repository, the shortest relevant starting path, and one question about the developer’s agent or stack.
 5. Share in relevant developer communities using community-specific context; do not cross-post identical promotional text indiscriminately.
-6. Convert repeated questions and real adoption failures into documentation or evaluation cases.
+6. Track conversations, useful objections, attempted trials, and concrete adoption failures—not vanity impressions alone.
+7. Defer Hacker News until a direct-link public launch is appropriate.
+8. Convert repeated questions and real adoption failures into documentation or evaluation cases.
