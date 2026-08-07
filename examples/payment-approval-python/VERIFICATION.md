@@ -5,7 +5,8 @@
 - Date: 2026-08-07
 - Runtime: CPython 3.12.13
 - Dependencies: Python standard library only
-- Source version: record the published commit after this evidence bundle is committed
+- Source version: SmartTest commit `7b40b8ba209ec82252c6af08c4ef93398b2c3b76`
+- CI replay: [Verify SmartTest run 4](https://github.com/SmartgenieUK/SmartTest/actions/runs/31210732558), successful in 9 seconds on GitHub-hosted Ubuntu with Python 3.12
 
 ## Correct implementation
 
