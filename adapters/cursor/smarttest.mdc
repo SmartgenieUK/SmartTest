@@ -7,10 +7,10 @@ alwaysApply: true
 
 For every material change, explicitly address verification and preserve evidence over assertion.
 
-- Before implementation, read and follow `skills/test-plan/SKILL.md` when planning verification from requirements.
-- For an existing change or diff, read `skills/test-impact/SKILL.md` before selecting regression scope.
-- When judging test adequacy or release evidence, read `skills/test-review/SKILL.md`.
-- For a non-trivial defect, read `skills/debug-causal/SKILL.md` and do not claim root cause without satisfying its proof gate.
+- Before implementation, read and follow `.smarttest/skills/test-plan/SKILL.md` when planning verification from requirements.
+- For an existing change or diff, read `.smarttest/skills/test-impact/SKILL.md` before selecting regression scope.
+- When judging test adequacy or release evidence, read `.smarttest/skills/test-review/SKILL.md`.
+- For a non-trivial defect, read `.smarttest/skills/debug-causal/SKILL.md` and do not claim root cause without satisfying its proof gate.
 - Follow the repository's authoritative requirements, existing test ownership, and local commands.
 - Do not treat test count, coverage, or a green pipeline as proof of requirement coverage.
 - Report missing, waived, contradictory, or unavailable evidence explicitly.
