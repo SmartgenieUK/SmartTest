@@ -2,6 +2,10 @@
 
 Use this for behaviour-bearing AI-assisted changes. Mark each item **done**, **N/A with rationale**, or **waived with approver, consequence, compensating control, and remediation condition**. Apply depth in proportion to risk; never omit a check silently.
 
+For every material change, intent and acceptance, testing, change ownership, and impact must be addressed. Defect fixes must also address causal evidence. Production-affecting changes must address operational validation. These obligations are not made inapplicable by labelling them N/A.
+
+N/A means that a check genuinely does not apply; it requires evidence and rationale. A waiver acknowledges an applicable unmet obligation. A high-consequence N/A decision or waiver requires a named accountable human who is independent of the coding agent. An agent cannot approve its own exception.
+
 ## Intent
 
 - [ ] The requirement and intended user or business outcome are identified.
@@ -53,7 +57,9 @@ Use this for behaviour-bearing AI-assisted changes. Mark each item **done**, **N
 
 ## Decision
 
-**Decision:** PASS / FAIL / ESCALATE / WAIVED
+**Decision:** PASS / FAIL / ESCALATE
+
+PASS requires all non-waivable obligations to be satisfied and no blocking failure or missing evidence. A waiver is an input to the release decision, not a release result; unresolved consequence or absent authority produces FAIL or ESCALATE.
 
 **Evidence reviewed:**
 
