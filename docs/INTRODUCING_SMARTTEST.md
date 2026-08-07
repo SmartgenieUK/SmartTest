@@ -1,12 +1,19 @@
 # What If You Could Get Your Hands on a Full-Blown Testing Doctrine for Your Entire Repository - for Free?
 
-AI can now change a repository in minutes.
+## First things first - Get SmartTest
+
+SmartTest is public and completely free.
+
+Comment **SMARTTEST** below and send me a connection request. Once connected, I'll DM you the repository and quick-start guide. You can try the first workflow on a real change within minutes.
+
+
+## AI can now change a repository in minutes.
 
 But most teams still decide what to test in the same inconsistent way: developer by developer, change by change and deadline by deadline.
 
 What if every developer and coding agent in your repository could follow one full-blown testing doctrine - already written, practical to implement and completely free?
 
-## Code engineering changed. Testing did not keep up.
+## Code engineering changed. Testing needs to keep up too.
 
 We have moved beyond autocomplete. Coding agents can inspect a repository, plan a change, edit several files, run commands and prepare a pull request.
 
@@ -121,8 +128,4 @@ No magic. No guarantee of correctness. No transformation programme.
 
 Try it on one real, bounded change. You can have the first workflow running within a few minutes after installation. If it reveals a risk or uncertainty you would otherwise have missed, keep it. If it adds ceremony without better evidence, challenge it.
 
-## Get SmartTest
 
-SmartTest is public and completely free.
-
-Comment **SMARTTEST** below and send me a connection request. Once connected, I'll DM you the repository and quick-start guide. You can try the first workflow on a real change within minutes.
