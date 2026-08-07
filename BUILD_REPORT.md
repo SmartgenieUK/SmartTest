@@ -12,7 +12,7 @@ SmartTest v0.1 provides DevGenie's tool-independent testing doctrine, a practica
 - The public repository name is **SmartTest**. DevGenie remains the originating brand in descriptions, doctrine context, and contribution guidance.
 - The original language-neutral example remains the authoritative teaching evidence chain. A separate, minimal Python example was added because public adopters need to see a real passing suite and a deliberately failing boundary mutant.
 - Apache License 2.0 was selected by the repository owner after the initial v0.1 build. The standard licence text is included without inventing a copyright-holder name or adding an optional `NOTICE` file.
-- The repository was not published or pushed. The local directory remains `C:\localcode\devgenietesting` as directed; **SmartTest** is the intended remote repository name.
+- The public repository is [SmartgenieUK/SmartTest](https://github.com/SmartgenieUK/SmartTest) with `main` as its default branch. The local source directory remains `C:\localcode\devgenietesting` as directed.
 - Owner-supplied seed inputs remain on disk but are excluded by `.gitignore` from the public repository tree.
 
 ## Artefacts created
@@ -136,6 +136,7 @@ N/A decisions and waivers require rationale. “PASS” is tied to criteria and 
 - Required payment cases: £9,999.99, £10,000, £10,000.01, dependency unavailable, unauthorized approval, and duplicate request/decision are all present.
 - Executable example: **6/6 tests pass** against the correct implementation; the deliberate `>=` to `>` mutant exits non-zero with exactly the expected boundary test failure.
 - Forward evaluation: `test-plan`, `test-impact`, `test-review`, and proportionate low-risk behaviour passed their representative probes. The initial causal-debug probe found a premature proof claim; after strengthening the proof gate, a fresh rerun correctly returned `PARTIALLY SUPPORTED` and named the missing obligations. See [EVALUATION_REPORT.md](EVALUATION_REPORT.md).
+- GitHub publication: the public launch commit contains all **37** candidate files; README rendering, the launch article, Apache-2.0 licence, executable test source, repository description, and discovery topics were verified from GitHub after publication.
 - Whitespace/structure: no newly authored trailing whitespace was found. Three source-preserved doctrine lines retain Markdown's intentional two-space line breaks.
 
 The skill creator's supplied `quick_validate.py` was invoked but could not start because the bundled Python runtime does not include its `PyYAML` dependency. Its validation rules were inspected and reproduced locally: frontmatter delimiters and fields, allowed keys, hyphen-case names, length limits, and forbidden angle brackets all pass. The metadata generator itself completed for all four skills.
@@ -157,6 +158,7 @@ The skill creator's supplied `quick_validate.py` was invoked but could not start
 - [x] Executable teaching code demonstrates that an important test can fail.
 - [x] Changed causal-debug behaviour was forward-tested in a fresh agent context.
 - [x] A repository-linked launch article and platform-specific promotion kit are included without unsupported performance or adoption claims.
+- [x] The public GitHub repository is published and its default-branch contents were verified remotely.
 - [x] No commercial testing service is required.
 - [x] All relative links resolve.
 - [x] Required self-review is complete and findings were fixed.
