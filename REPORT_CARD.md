@@ -17,16 +17,19 @@ The maintainers then reproduced the deterministic findings, fixed the material d
 
 ## Current scores
 
-| Area | Grade | Evidence and limits |
-|---|---:|---|
-| Doctrine coherence | A- | Substantive normative baseline, clear hard rules, linked map and consistent hierarchy. It remains deliberately broad. |
-| Practical workflow | B+ | Four bounded skills, templates, a release checklist and an adoption path. Real-world team usage is not yet measured. |
-| Executable evidence | A- | Ten requirement-facing tests pass; one deliberate boundary mutant causes exactly the expected one failure. This proves one suite can detect one seeded defect, not full correctness. |
-| Traceability | B+ | The example maps acceptance obligations to named executable tests and a verification record. Production evidence is represented, not integrated. |
-| Portability | B | Native Codex and Claude paths plus namespaced Cursor, Copilot and generic-agent setup. Every vendor UI/version has not been exercised end to end. |
-| Reproducibility | B- | Repository structure, local links, skill metadata, example tests and mutant expectation run in one command and CI. Behavioural agent probes still lack full replay bundles. |
-| Gate governance | B+ | N/A and waiver semantics are explicit; agents cannot approve their own high-consequence exceptions. Enforcement remains procedural. |
-| Adoption evidence | C | No published longitudinal evidence yet from independent repositories, teams or languages. |
+The overall score is a weighted average, rounded to one decimal place. The weights deliberately keep reproducibility and real adoption material rather than allowing doctrine prose to dominate the grade.
+
+| Area | Score / 10 | Weight | Contribution | Evidence and limits |
+|---|---:|---:|---:|---|
+| Doctrine coherence | 8.5 | 20% | 1.70 | Substantive normative baseline, clear hard rules, linked map and consistent hierarchy. It remains deliberately broad. |
+| Practical workflow | 8.0 | 15% | 1.20 | Four bounded skills, templates, a release checklist and an adoption path. Real-world team usage is not yet measured. |
+| Executable evidence | 8.5 | 15% | 1.28 | Ten requirement-facing tests pass; one deliberate boundary mutant causes exactly the expected one failure. This proves one suite can detect one seeded defect, not full correctness. |
+| Traceability | 8.0 | 10% | 0.80 | The example maps acceptance obligations to named executable tests and a verification record. Production evidence is represented, not integrated. |
+| Portability | 7.5 | 10% | 0.75 | Native Codex and Claude paths plus namespaced Cursor, Copilot and generic-agent setup. Every vendor UI/version has not been exercised end to end. |
+| Reproducibility | 6.5 | 15% | 0.98 | Repository structure, local links, skill metadata, example tests and mutant expectation run in one command and CI. Behavioural agent probes still lack full replay bundles. |
+| Gate governance | 8.0 | 5% | 0.40 | N/A and waiver semantics are explicit; agents cannot approve their own high-consequence exceptions. Enforcement remains procedural. |
+| Adoption evidence | 5.5 | 10% | 0.55 | No published longitudinal evidence yet from independent repositories, teams or languages. |
+| **Weighted total** |  | **100%** | **7.65 -> 7.7** | **B: strong, inspectable beta.** |
 
 ## Reproduce the deterministic evidence
 
@@ -60,6 +63,6 @@ The same command runs in [GitHub Actions](.github/workflows/verify.yml).
 
 ## What this grade does not claim
 
-SmartTest does not guarantee correct software. Its example does not exercise a real bank, identity provider, audit store or production environment. The behavioural agent evaluation is promising but too small and insufficiently archived to prove consistent outcomes across models. v0.1 should therefore be treated as a strong beta to inspect, try on a bounded change, and challenge—not as a certified assurance system.
+SmartTest does not guarantee correct software. Its example does not exercise a real bank, identity provider, audit store or production environment, and it does not yet specify approval-request or payment-execution failure state transitions. One hand-authored mutant proves sensitivity to one seeded defect only. The behavioural agent evaluation is promising but too small and insufficiently archived to prove consistent outcomes across models. v0.1 should therefore be treated as a strong beta to inspect, try on a bounded change, and challenge—not as a certified assurance system.
 
 If you adopt it, the most useful contribution is evidence: the agent and version used, the repository context, the workflow attempted, the output, what changed in developer behaviour, and any failure or friction you observed.
