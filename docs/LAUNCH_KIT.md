@@ -1,6 +1,6 @@
 # SmartTest Launch Kit
 
-This file contains reusable promotional copy for SmartTest and its launch article, [Your AI-Generated Tests Are Green. What Did They Prove?](INTRODUCING_SMARTTEST.md). The public launch uses a comment-to-DM call to action: initial posts do not include the repository URL.
+This file contains reusable promotional copy for SmartTest and its launch article, [What If You Could Get Your Hands on a Full-Blown Testing Doctrine for Your Entire Repository - for Free?](INTRODUCING_SMARTTEST.md). The public launch uses a comment-to-DM call to action: initial posts do not include the repository URL.
 
 ## Core positioning
 
@@ -142,7 +142,7 @@ Comment **SMARTTEST** and I’ll DM you the repository and the shortest starting
 
 ## Dev.to / blog metadata
 
-- **Title:** Your AI-Generated Tests Are Green. What Did They Prove?
+- **Title:** What If You Could Get Your Hands on a Full-Blown Testing Doctrine for Your Entire Repository - for Free?
 - **Description:** Introducing SmartTest, an evidence-first testing discipline for AI-assisted software development that starts from intent, not implementation.
 - **Tags:** `testing`, `ai`, `opensource`, `softwaredevelopment`
 - **Canonical source:** `docs/INTRODUCING_SMARTTEST.md`
