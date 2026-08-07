@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Review"
+  short_description: "Evaluate whether tests prove intended behaviour"
+  default_prompt: "Use $test-review to assess these tests against intended behaviour and return an evidence-based verdict."

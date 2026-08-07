@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Impact"
+  short_description: "Assess blast radius and regression obligations"
+  default_prompt: "Use $test-impact to inspect this change and recommend evidence for its plausible blast radius."

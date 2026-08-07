@@ -1,0 +1,7 @@
+# Local build inputs retained outside the public SmartTest tree
+/DevGenie-Testing-Codex-Seed.zip
+/DEVGENIE_TESTING_DOCTRINE_V2.md
+
+# Python example runtime artefacts
+__pycache__/
+*.py[cod]

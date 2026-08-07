@@ -1,0 +1,4 @@
+interface:
+  display_name: "Causal Debugging"
+  short_description: "Diagnose defects using causal evidence"
+  default_prompt: "Use $debug-causal to reproduce this defect, test a causal hypothesis, and verify the smallest root-cause correction."

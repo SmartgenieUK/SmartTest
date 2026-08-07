@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Plan"
+  short_description: "Derive risk-based verification obligations"
+  default_prompt: "Use $test-plan to derive a risk-based test plan from the requirement and repository evidence."
