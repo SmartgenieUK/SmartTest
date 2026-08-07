@@ -12,7 +12,9 @@ This file contains reusable promotional copy for SmartTest and its launch articl
 
 **Boundary:** SmartTest is not a test framework, hosted platform, DevGenie product implementation, or correctness guarantee.
 
-**Primary call to action:** Comment `SMARTTEST` and we will DM the repository and a focused starting point for one real, bounded change.
+**Proof hook:** Two fresh-context adversarial AI reviews scored the pre-remediation repository at 6.7-6.8/10, found material defects, and drove fixes. The public report card retains the remaining limits.
+
+**Primary call to action:** Comment `SMARTTEST` and send me a connection request. Once connected, I will DM the repository and a focused starting point for one real, bounded change.
 
 ## Private fulfilment links
 
@@ -20,9 +22,10 @@ Use these in private messages after someone comments `SMARTTEST`, or when someon
 
 - Repository: https://github.com/SmartgenieUK/SmartTest
 - Article: https://github.com/SmartgenieUK/SmartTest/blob/main/docs/INTRODUCING_SMARTTEST.md
-- Ten-minute adoption trial: https://github.com/SmartgenieUK/SmartTest/blob/main/docs/ADOPTION_GUIDE.md#ten-minute-trial
+- Adoption trial: https://github.com/SmartgenieUK/SmartTest/blob/main/docs/ADOPTION_GUIDE.md#ten-minute-trial
 - Executable boundary example: https://github.com/SmartgenieUK/SmartTest/tree/main/examples/payment-approval-python
 - Behavioural evaluation: https://github.com/SmartgenieUK/SmartTest/blob/main/EVALUATION_REPORT.md
+- Adversarial report card: https://github.com/SmartgenieUK/SmartTest/blob/main/REPORT_CARD.md
 
 ## Headline hooks
 
@@ -36,6 +39,8 @@ Use these in private messages after someone comments `SMARTTEST`, or when someon
 8. Tests generated from the same mistaken assumption can agree perfectly.
 
 ## LinkedIn launch post
+
+What if you could get a full-blown testing doctrine for your entire repository - for free?
 
 AI can generate an implementation and its tests from the same mistaken interpretation.
 
@@ -55,6 +60,8 @@ The core idea is simple: derive verification from intent, not from the implement
 
 SmartTest also asks teams to demonstrate that important tests can fail, distinguish coverage from requirement evidence, and report missing evidence honestly.
 
+We applied that standard to SmartTest itself. Two fresh-context adversarial AI reviews scored the pre-remediation repository at 6.7-6.8/10 and found material defects. We fixed the high-impact issues and published a report card that shows the evidence and the remaining gaps. It is an inspectable beta, not a magic quality badge.
+
 Comment **SMARTTEST** and send me a connection request. Once connected, I’ll DM you the repository and starting workflow.
 
 If it exposes an obligation you would have missed, tell us. If it creates ceremony without evidence, tell us that too.
@@ -67,7 +74,7 @@ The most dangerous AI-generated test is not the one that fails.
 
 It is the wrong test that passes alongside the wrong implementation because both came from the same mistaken assumption.
 
-We built SmartTest to put intent, risk, traceability, test sensitivity, and honest evidence back into AI-assisted development.
+We built SmartTest to put intent, risk, traceability, test sensitivity, and honest evidence back into AI-assisted development. Then we adversarially reviewed the repository, fixed the material findings, and published the report card.
 
 Comment **SMARTTEST** and send me a connection request. Once connected, I’ll DM you the repository and starting workflow.
 
@@ -174,7 +181,7 @@ Do not place the repository link in the public reply. Wait until the connection 
 
 **Private DM after connection**
 
-> Thanks for your interest. Which coding agent and primary language do you use? Here is SmartTest: https://github.com/SmartgenieUK/SmartTest. Start with the five-minute guide in the README, then use `test-plan` on one real, bounded requirement.
+> Thanks for your interest. Which coding agent and primary language do you use? Here is SmartTest: https://github.com/SmartgenieUK/SmartTest. Read the report card, follow the first workflow in the README, then use `test-plan` on one real, bounded requirement.
 
 **Follow-up after several days**
 
