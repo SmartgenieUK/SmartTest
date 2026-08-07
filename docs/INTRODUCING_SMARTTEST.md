@@ -1,118 +1,125 @@
 # Your AI-Generated Tests Are Green. What Did They Prove?
 
-There is a reassuring moment in AI-assisted development.
+Every engineering team has a testing doctrine, even if nobody has written it down.
 
-The agent finishes the change, writes the tests and runs the suite. Everything is green. The report looks tidy, the coverage number is respectable and it feels as though the work is done.
+It lives in the decisions people make every day. What counts as enough testing? Which failures matter? When is a green pipeline good enough? What evidence does a reviewer need before approving a change?
 
-But there is a question we do not ask often enough:
+When those answers are not explicit, the doctrine becomes whatever the team happens to do under pressure.
 
-> What did those tests actually prove?
+AI-assisted development makes that risky. A coding agent can turn an unclear requirement into code and tests in minutes. If its interpretation is wrong, the implementation and the tests can still agree perfectly.
 
-The uncomfortable answer is sometimes: much less than we think.
+The pipeline is green. The software is wrong.
 
-If the same agent reads the requirement, writes the implementation and creates the tests, all three can share the same misunderstanding. The code does the wrong thing. The tests confirm that it does the wrong thing consistently. The pipeline stays green.
+A written testing doctrine gives developers, reviewers and coding agents the same rules for deciding what needs to be proven.
 
-That is the problem SmartTest is designed to tackle.
+## What should a testing doctrine contain?
 
-## A green pipeline can still be wrong
+A useful doctrine is not a list of preferred tools. It is a set of engineering principles that remain valid when the language, framework or agent changes.
 
-Imagine a simple requirement:
+It should answer questions such as:
+
+- Does verification begin with the requirement or with the finished code?
+- How should the depth of testing change with risk and consequence?
+- Which positive, negative, boundary, permission, integration and operational cases must be considered?
+- How is each important claim connected to evidence?
+- How do we know that an important test can detect the defect it claims to cover?
+- What is required before a suspected root cause can be called proven?
+- How are missing evidence, waivers and uncertainty reported?
+
+Those questions form a system. Starting from intent helps identify the right risks. Risk determines how much evidence is proportionate. Traceability shows which claims have support. Honest reporting stops a green status from hiding what has not been checked.
+
+Trying to cover all of that in one article would turn it into a manual. So I want to focus on one principle that is easy to understand, easy to try and surprisingly powerful.
+
+## An important test should prove that it can fail
+
+A passing test does not automatically prove that the test is useful.
+
+It may execute the code without checking the important outcome. It may assert the implementation's current behaviour rather than the requirement. It may miss the exact boundary where the defect lives. In some cases, it may continue to pass even after the intended rule has been removed.
+
+So the principle is simple:
+
+> For an important behaviour, demonstrate that the relevant test fails when that behaviour is deliberately broken.
+
+This is test sensitivity. It asks whether the test is capable of detecting the defect it is supposed to guard against.
+
+## A boundary example
+
+Consider this requirement:
 
 > Payments of GBP 10,000 or more require secondary approval.
 
-An implementation checks for payments greater than GBP 10,000. The agent also writes tests for GBP 9,999 and GBP 10,001, but misses the exact boundary.
+Now imagine the implementation only requires approval when the value is greater than GBP 10,000.
 
-Both tests pass. The changed code is covered. The rule is still wrong for a payment of exactly GBP 10,000.
+The agent writes one test for GBP 9,999 and another for GBP 10,001. Both pass. The changed code is exercised. Coverage looks healthy. But nobody tests exactly GBP 10,000.
 
-Nothing is wrong with the test runner. It ran the tests it was given. The problem is that nobody turned the words "or more" into an explicit verification obligation.
+The words "or more" created a boundary obligation. Because that obligation was never made explicit, the implementation and the tests share the same mistake.
 
-This is where a lot of AI testing goes wrong. We ask an agent to test the code it has just written instead of first asking what must be true, where the boundaries are and how the result could fail.
+To check test sensitivity, deliberately replace the correct boundary with the faulty one. The exact-boundary test should fail. Restore the correct rule and it should pass.
 
-## Start with the requirement
+That short experiment gives us a precise piece of evidence:
 
-SmartTest is a small, open-source testing discipline from DevGenie. It is not another test framework and it does not replace the tools already in your pipeline.
+> The boundary test can detect the loss of secondary approval at exactly GBP 10,000.
 
-It changes the order of the conversation.
+Notice what it does not prove. It does not prove that the whole payment service is correct. It does not prove that permissions, persistence, integrations or production configuration are safe. It supports one named claim against one relevant defect.
 
-Before implementation begins, SmartTest asks:
+That is much more useful than saying, "All the tests are green."
 
-- What behaviour has actually been requested?
-- Which boundaries and failure paths matter?
-- What could go wrong outside the edited file?
-- What evidence would support each important claim?
-- Could the proposed test detect the defect we care about?
-- What will still be uncertain after the tests pass?
+## How to use the principle
 
-That sounds like ordinary good engineering, because it is. The difficulty is applying it consistently when an AI agent can produce plausible code and plausible tests faster than a person can properly challenge the assumptions behind them.
+You do not need a full mutation-testing programme to apply this idea. For a material rule or regression, use five steps:
 
-SmartTest gives the agent a repeatable way to do that work without forcing a new platform or a heavyweight process onto the team.
+1. Name the behaviour the test is meant to protect.
+2. Describe the smallest realistic defect that would violate it.
+3. Introduce that defect temporarily, or run the test against the known faulty behaviour.
+4. Confirm that the expected test fails for the expected reason.
+5. Restore the correct implementation and confirm that the focused and relevant broader tests pass.
 
-## Four practical jobs
+This also improves test review. Instead of asking only whether a test exists, the reviewer can ask which defect it would catch and what evidence shows that it can catch it.
 
-The repository contains four focused workflows.
+It improves regression testing too. A regression test should fail before the correction and pass after it. If it never saw the faulty behaviour, its value is still an assumption.
 
-Test Plan turns a requirement into verification obligations before the implementation shapes the answer.
+## Proportion still matters
 
-Test Impact looks beyond the files in the diff. It asks about consumers, contracts, stored data, permissions, integrations and operational behaviour.
+Not every test needs a deliberate mutant. That would create effort without enough benefit.
 
-Test Review checks whether the available tests support the claims being made. A test count or coverage percentage is not accepted as proof on its own.
+Apply the principle where failure has a meaningful consequence: money movement, authorisation, data loss, external contracts, migrations, concurrency, safety controls and defects that have already reached users.
 
-Causal Debugging slows down one of the most tempting AI failure modes: finding a plausible fix and immediately calling it the root cause.
+For a spelling correction in documentation, link and structure checks may be enough. A doctrine should increase rigour with consequence, not demand maximum ceremony for every change.
 
-These workflows are written as portable Markdown instructions. They can be used with Codex, Claude Code, Cursor, GitHub Copilot or another coding agent. There is no proprietary runtime.
+The aim is not more tests. The aim is stronger evidence.
 
-## A test should show that it can fail
+## Why this matters more with coding agents
 
-The SmartTest repository includes the payment example above as executable Python code.
+Before coding agents, implementation and test mistakes could still share an assumption. AI makes the failure mode faster and more convincing.
 
-The correct implementation passes six tests. We then make one deliberate change: the exact boundary is excluded. Five tests continue to pass, while the GBP 10,000 boundary test fails.
+The same context often produces the requirement interpretation, the code, the tests and the summary telling us that everything is complete. Internal consistency can look like independent verification when it is nothing of the kind.
 
-That does not prove the entire payment system is correct. It proves something smaller and more useful: this particular test can detect this particular defect.
+A testing doctrine gives the agent a different job. It must derive obligations from intent, challenge its own implementation and state exactly what the evidence does and does not support.
 
-That level of precision matters. "The tests pass" is a status update. "This test fails when the required boundary is removed" is evidence.
+That does not make AI-generated code trustworthy by default. It makes the route to a decision more visible and reviewable.
 
-## A working fix is not proof of root cause
+## A ready-made implementation of the rest
 
-The same discipline applies to debugging.
+Test sensitivity is only one part of a complete testing doctrine.
 
-An agent sees a failure, produces a convincing explanation, changes the code and gets a green test. It is very easy to describe the original explanation as proven.
+SmartTest is DevGenie's ready-made, open-source implementation of the wider discipline. It includes:
 
-But perhaps the change affected several things. Perhaps the test never reproduced the production failure. Perhaps the explanation was simply one of several stories that fitted the evidence.
+- the full testing doctrine;
+- a workflow for deriving test obligations before implementation;
+- change-impact analysis that looks beyond the edited files;
+- a review method for connecting claims to evidence;
+- a causal-debugging workflow with a real proof threshold;
+- requirement traceability and Definition of Done templates;
+- a release checklist;
+- worked and executable examples;
+- setup guidance for several coding agents.
 
-SmartTest asks for a falsifiable hypothesis and a prediction recorded before its result is known. It also asks for a failing regression before the correction is applied. If the prediction fails, the hypothesis is not quietly rewritten to match what happened.
+It is portable Markdown rather than a testing framework or hosted product. Teams can use the whole method or adopt the smallest part that improves a real decision.
 
-Sometimes the honest conclusion is "partially supported" or "not proven". That is not weakness. It is better engineering than a confident story the evidence cannot support.
+The best way to judge it is not to agree with the principles. Try it on one bounded change and see whether it exposes a risk or uncertainty that the normal workflow missed.
 
-## Your existing tools still matter
+If it adds ceremony without better evidence, reject that part. Evidence over assertion applies to the doctrine itself.
 
-Test runners, static analysis, security scanners, code review, coverage tools and production monitoring all provide valuable signals. SmartTest does not compete with them.
-
-It helps the team decide which questions those tools need to answer.
-
-A green badge is useful when we understand its scope, configuration, freshness and relationship to the requirement. Without that context, it is easy to treat a signal as a conclusion.
-
-This is also where the longer-term DevGenie direction fits. SmartTest establishes what should be proven. Evidence providers supply relevant signals. DevGenie can eventually help make that evidence traceable, reviewable and ready for a decision.
-
-The public repository is the methodology. It is not a DevGenie product implementation.
-
-## Try it on one real change
-
-You do not need a transformation programme to find out whether SmartTest is useful.
-
-Choose one bounded change with a clear acceptance criterion. Before writing code, ask your coding agent to derive the verification obligations. Look at the boundaries, failure paths and assumptions it identifies. Then compare those obligations with the tests and evidence produced after implementation.
-
-Ask one question at the end:
-
-> Did this reveal a risk or uncertainty we would otherwise have missed?
-
-If the answer is no, do not keep the ceremony. If the answer is yes, adopt the smallest useful part of the workflow.
-
-SmartTest is deliberately small, practical and licensed under Apache 2.0. We want developers to challenge it with real work, not simply agree with the idea.
-
-If it finds a gap, tell us what happened. If it creates paperwork without better evidence, tell us that too.
-
-Evidence over assertion applies to SmartTest itself.
-
-Want to try it?
+Want the ready-made doctrine and implementation?
 
 > Comment **SMARTTEST** and send me a connection request. Once connected, I'll DM you the repository and starting workflow.
