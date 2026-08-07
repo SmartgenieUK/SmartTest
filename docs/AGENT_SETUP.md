@@ -82,7 +82,7 @@ Copy-Item -Recurse "$smartTestPath\templates" .smarttest\templates
 Copy-Item -Recurse "$smartTestPath\checklists" .smarttest\checklists
 ```
 
-Ask Copilot coding agent or chat to read the relevant `skills/<name>/SKILL.md` before acting. Copilot coding agent can also use `AGENTS.md`; the nearest applicable file takes precedence, so copy SmartTest's compact rules into the target repository only when they match local policy.
+Ask Copilot coding agent or chat to read the relevant `.smarttest/skills/<name>/SKILL.md` before acting. Copilot coding agent can also use `AGENTS.md`; the nearest applicable file takes precedence, so copy SmartTest's compact rules into the target repository only when they match local policy.
 
 Official reference: [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
