@@ -1,15 +1,28 @@
 # DevGenie Testing Doctrine — Version 2
 
-**Status:** Draft v2  
+**Status:** Normative SmartTest v0.1 baseline  
 **Purpose:** Methodology-first testing doctrine for AI Code Engineering  
 **Scope:** DevGenie methodology first; product enforcement second  
 **Principle:** External testing tools strengthen our engineering discipline. They do not define it.
 
+**Provenance:** Adopted from the DevGenie Testing Doctrine Draft v2 and ratified as the SmartTest v0.1 baseline on 2026-08-07. Changes require a versioned commit and an explicit evidence-backed review.
+
 **Version 2 focus:** Preserve the original assurance model while making testing obligations harder to omit in day-to-day AI-assisted engineering. V2 adds explicit rules for testing-addressed decisions, existing-test ownership, change-impact verification, causal debugging, and operational validation.
+
+## At a glance
+
+- [Foundations: purpose, doctrine, requirements and traceability](#1-purpose)
+- [Test design, levels, ownership and independence](#5-the-testing-pyramid-still-matters)
+- [Evidence, reproducibility, risk and change impact](#21-evidence-over-assertion)
+- [Production, external evidence providers and gates](#25-production-verification)
+- [Minimum discipline, anti-patterns and principles](#31-minimum-testing-discipline)
+- [DevGenie relationship and v2 hard rules](#34-relationship-to-the-devgenie-product)
+
+Start with the [minimum testing discipline](#31-minimum-testing-discipline) for adoption, then apply the detailed sections in proportion to consequence. The doctrine defines obligations; the SmartTest skills, templates and checklists make them usable in repository work.
 
 ---
 
-# 1. Purpose
+## 1. Purpose
 
 AI-assisted software development changes the speed and volume of code production, but it does not remove the engineering obligations that made disciplined software delivery reliable.
 
@@ -34,9 +47,9 @@ The objective is **sufficient, relevant, independent evidence that the software 
 
 ---
 
-# 2. Core Doctrine
+## 2. Core Doctrine
 
-## 2.1 Quality is a lifecycle responsibility
+### 2.1 Quality is a lifecycle responsibility
 
 Testing is not a phase performed after implementation.
 
@@ -68,7 +81,7 @@ At every stage DevGenie asks:
 
 ---
 
-## 2.2 A green pipeline is not proof of correctness
+### 2.2 A green pipeline is not proof of correctness
 
 A system may:
 
@@ -82,7 +95,7 @@ and still implement the wrong behaviour.
 
 DevGenie therefore distinguishes between:
 
-### Verification
+#### Verification
 
 **Did we build the thing correctly?**
 
@@ -93,7 +106,7 @@ Examples:
 - Does the API honour its schema?
 - Does the component handle failures correctly?
 
-### Validation
+#### Validation
 
 **Did we build the correct thing?**
 
@@ -108,7 +121,7 @@ Both are required.
 
 ---
 
-# 3. Testing Begins With Requirements
+## 3. Testing Begins With Requirements
 
 A requirement that cannot be tested is not ready for implementation.
 
@@ -144,7 +157,7 @@ This turns testing into a consequence of the requirement rather than an aftertho
 
 ---
 
-# 4. Traceability
+## 4. Traceability
 
 For material behaviour, DevGenie should maintain traceability across the engineering chain.
 
@@ -178,7 +191,7 @@ It is how DevGenie distinguishes **tested code** from **verified intent**.
 
 ---
 
-# 5. The Testing Pyramid Still Matters
+## 5. The Testing Pyramid Still Matters
 
 AI does not repeal software economics.
 
@@ -213,7 +226,7 @@ DevGenie should resist the common AI-generated-code failure mode of creating man
 
 ---
 
-# 6. Required Test Levels
+## 6. Required Test Levels
 
 Not every change requires every test type.
 
@@ -223,7 +236,7 @@ The required test scope should be proportional to the behaviour, risk, architect
 
 However, the methodology recognises the following distinct test levels.
 
-## 6.0 Testing Must Be Addressed
+### 6.0 Testing Must Be Addressed
 
 For every material change, DevGenie must reach one of two explicit conclusions:
 
@@ -258,7 +271,7 @@ Examples of changes that may legitimately require non-test verification include:
 Even in such cases, the decision must be explicit.
 
 
-## 6.1 Unit Testing
+### 6.1 Unit Testing
 
 Verify the smallest meaningful units of behaviour in isolation.
 
@@ -281,7 +294,7 @@ They should verify externally meaningful behaviour.
 
 ---
 
-## 6.2 Component Testing
+### 6.2 Component Testing
 
 Verify a service, module, library, class cluster, or bounded component as a coherent unit.
 
@@ -297,7 +310,7 @@ Typical concerns:
 
 ---
 
-## 6.3 Contract and API Testing
+### 6.3 Contract and API Testing
 
 Interfaces must be tested independently of individual implementations.
 
@@ -315,7 +328,7 @@ Contract testing is particularly important in AI-assisted development because an
 
 ---
 
-## 6.4 Integration Testing
+### 6.4 Integration Testing
 
 Verify that independently developed components behave correctly together.
 
@@ -338,7 +351,7 @@ Mocks must not become a substitute for validating real integration behaviour.
 
 ---
 
-## 6.5 System Testing
+### 6.5 System Testing
 
 Verify the complete system against intended system behaviour.
 
@@ -354,7 +367,7 @@ System testing should cover:
 
 ---
 
-## 6.6 Acceptance Testing
+### 6.6 Acceptance Testing
 
 Acceptance testing establishes whether the system satisfies the intended business or user outcome.
 
@@ -366,7 +379,7 @@ Acceptance should answer:
 
 ---
 
-## 6.7 Regression Testing
+### 6.7 Regression Testing
 
 Every defect fix and material behaviour change should consider regression protection.
 
@@ -382,7 +395,7 @@ A defect that can silently return is not fully resolved.
 
 ---
 
-# 7. Positive Tests Are Not Enough
+## 7. Positive Tests Are Not Enough
 
 Testing must actively attempt to invalidate assumptions.
 
@@ -420,7 +433,7 @@ It requires **deliberate consideration of failure space**.
 
 ---
 
-# 8. Test Design Before Test Generation
+## 8. Test Design Before Test Generation
 
 AI can generate tests quickly.
 
@@ -471,7 +484,7 @@ A hundred tests covering the same happy path provide less assurance than five we
 
 ---
 
-# 9. Existing Test Ownership
+## 9. Existing Test Ownership
 
 Before creating new tests for changed behaviour, DevGenie should first identify where that behaviour is already verified.
 
@@ -502,7 +515,7 @@ The goal is a coherent, authoritative verification structure.
 
 ---
 
-# 10. Independence of Verification
+## 10. Independence of Verification
 
 A system should not be considered independently verified merely because the same reasoning process produced:
 
@@ -561,7 +574,7 @@ Independence should be proportional to consequence.
 
 ---
 
-# 11. Tests Must Be Capable of Failing
+## 11. Tests Must Be Capable of Failing
 
 A test suite that cannot detect meaningful defects creates false assurance.
 
@@ -603,13 +616,13 @@ This is stronger evidence than simply reporting that the existing tests passed.
 
 ---
 
-# 12. Coverage Is Multi-Dimensional
+## 12. Coverage Is Multi-Dimensional
 
 Code coverage is useful but insufficient.
 
 DevGenie should distinguish several forms of coverage.
 
-## 12.1 Code Coverage
+### 12.1 Code Coverage
 
 What implementation paths were executed?
 
@@ -619,7 +632,7 @@ Examples:
 - branch coverage;
 - condition coverage.
 
-## 12.2 Requirement Coverage
+### 12.2 Requirement Coverage
 
 Which requirements have verification evidence?
 
@@ -630,15 +643,15 @@ REQ-003 → NO TEST
 REQ-004 → PASS
 ```
 
-## 12.3 Scenario Coverage
+### 12.3 Scenario Coverage
 
 Which expected and failure scenarios have been exercised?
 
-## 12.4 Interface Coverage
+### 12.4 Interface Coverage
 
 Which contracts and integration boundaries have been tested?
 
-## 12.5 Risk Coverage
+### 12.5 Risk Coverage
 
 Have the behaviours with the greatest potential impact received proportionate assurance?
 
@@ -646,7 +659,7 @@ DevGenie should avoid treating a single percentage as a proxy for quality.
 
 ---
 
-# 13. Test Data Is an Engineering Asset
+## 13. Test Data Is an Engineering Asset
 
 Test quality depends heavily on test data.
 
@@ -666,7 +679,7 @@ Where production data is used or derived, privacy, confidentiality, regulatory, 
 
 ---
 
-# 14. Entry and Exit Criteria
+## 14. Entry and Exit Criteria
 
 Testing stages should have explicit criteria.
 
@@ -699,7 +712,7 @@ DevGenie gates should ultimately operationalise these criteria.
 
 ---
 
-# 15. Causal Debugging Discipline
+## 15. Causal Debugging Discipline
 
 For non-trivial defects, DevGenie should not treat a working patch as proof that the root cause is understood.
 
@@ -739,7 +752,7 @@ The regression test should protect the corrected behaviour rather than merely pr
 
 ---
 
-# 16. Defects Have a Lifecycle
+## 16. Defects Have a Lifecycle
 
 A failed test is not merely a red icon.
 
@@ -778,7 +791,7 @@ Testing should improve the development system, not merely the current release.
 
 ---
 
-# 17. Non-Functional Testing Is First-Class
+## 17. Non-Functional Testing Is First-Class
 
 Functional correctness alone does not make software production-ready.
 
@@ -803,7 +816,7 @@ These requirements should be testable where material.
 
 ---
 
-# 18. Security Testing
+## 18. Security Testing
 
 Security must not depend on one scanner.
 
@@ -827,7 +840,7 @@ Responsibility for security assurance remains internal.
 
 ---
 
-# 19. Testing AI-Enabled Software
+## 19. Testing AI-Enabled Software
 
 Traditional testing remains the foundation.
 
@@ -856,7 +869,7 @@ It requires better-defined evaluation methods.
 
 ---
 
-# 20. Testing AI-Generated Code
+## 20. Testing AI-Generated Code
 
 AI-generated code should be treated as untrusted implementation until verified.
 
@@ -876,7 +889,7 @@ The appropriate assurance level depends on the consequence of failure, not on wh
 
 ---
 
-# 21. Evidence Over Assertion
+## 21. Evidence Over Assertion
 
 DevGenie's core testing principle is:
 
@@ -923,7 +936,7 @@ It makes judgement auditable.
 
 ---
 
-# 22. Reproducibility
+## 22. Reproducibility
 
 Verification should be reproducible wherever practical.
 
@@ -942,7 +955,7 @@ A result that cannot be reproduced has reduced assurance value.
 
 ---
 
-# 23. Risk-Based Testing
+## 23. Risk-Based Testing
 
 Not all code deserves equal testing effort.
 
@@ -970,7 +983,7 @@ Conversely, critical behaviour should not escape deep testing because a code cha
 
 ---
 
-# 24. Change-Impact Verification
+## 24. Change-Impact Verification
 
 Every material change must prompt a deliberate blast-radius analysis.
 
@@ -1014,7 +1027,7 @@ A clean isolated unit test does not prove that surrounding layers still work tog
 
 ---
 
-# 25. Production Verification
+## 25. Production Verification
 
 Testing does not end at deployment.
 
@@ -1050,7 +1063,7 @@ Operational validation is therefore part of the release contract, not optional r
 
 ---
 
-# 26. External Tools Are Evidence Providers
+## 26. External Tools Are Evidence Providers
 
 DevGenie should integrate external tools without outsourcing the methodology to them.
 
@@ -1107,7 +1120,7 @@ Therefore software is good
 
 ---
 
-# 27. Tool Independence
+## 27. Tool Independence
 
 Where reasonable, the DevGenie testing methodology should avoid binding itself to a specific vendor.
 
@@ -1125,7 +1138,7 @@ This keeps the doctrine stable while tooling evolves.
 
 ---
 
-# 28. Evidence Normalisation
+## 28. Evidence Normalisation
 
 The product implementation should eventually normalise results from heterogeneous tools.
 
@@ -1150,7 +1163,7 @@ The product defines how that evidence is harvested, normalised, stored, and eval
 
 ---
 
-# 29. Gates Are Engineering Decisions
+## 29. Gates Are Engineering Decisions
 
 A gate should represent an explicit engineering decision based on known criteria.
 
@@ -1176,7 +1189,7 @@ A gate must never be reduced to an unexplained boolean.
 
 ---
 
-# 30. Waivers Must Be Explicit
+## 30. Waivers Must Be Explicit
 
 Engineering sometimes requires conscious acceptance of incomplete assurance.
 
@@ -1197,7 +1210,7 @@ This makes engineering pragmatism visible without pretending the evidence was st
 
 ---
 
-# 31. Minimum Testing Discipline
+## 31. Minimum Testing Discipline
 
 Before advanced external testing capabilities are considered, DevGenie methodology should expect at least the following for meaningful production changes:
 
@@ -1223,11 +1236,11 @@ This is the internal engineering baseline.
 
 ---
 
-# 32. Anti-Patterns
+## 32. Anti-Patterns
 
 DevGenie should actively discourage the following.
 
-## Test-count theatre
+### Test-count theatre
 
 ```text
 "AI generated 1,200 tests."
@@ -1235,7 +1248,7 @@ DevGenie should actively discourage the following.
 
 The number is meaningless without understanding what they verify.
 
-## Coverage theatre
+### Coverage theatre
 
 ```text
 "Coverage is 95%, therefore quality is high."
@@ -1243,7 +1256,7 @@ The number is meaningless without understanding what they verify.
 
 Coverage measures execution, not correctness.
 
-## Green-pipeline reasoning
+### Green-pipeline reasoning
 
 ```text
 "CI passed, therefore the feature is correct."
@@ -1251,31 +1264,31 @@ Coverage measures execution, not correctness.
 
 CI only proves the configured checks passed.
 
-## Mock everything
+### Mock everything
 
 A system can achieve perfect mocked tests while failing against every real dependency.
 
-## Same-agent assurance
+### Same-agent assurance
 
 Implementation, tests, review, and approval all produced from the same context should not automatically be considered independent evidence.
 
-## Snapshot abuse
+### Snapshot abuse
 
 Tests that merely approve large generated outputs can easily preserve incorrect behaviour.
 
-## Brittle implementation tests
+### Brittle implementation tests
 
 Tests tied unnecessarily to internal implementation make refactoring expensive and encourage superficial maintenance.
 
-## Test-after-the-fact only
+### Test-after-the-fact only
 
 Writing tests only after implementation encourages tests that rationalise what was built rather than challenge what should have been built.
 
-## Tool-as-methodology
+### Tool-as-methodology
 
 Installing SonarQube, CodeRabbit, Snyk, Playwright, or any other product does not constitute a testing strategy.
 
-## Vacuous test gates
+### Vacuous test gates
 
 ```text
 "Tests pass."
@@ -1283,89 +1296,89 @@ Installing SonarQube, CodeRabbit, Snyk, Playwright, or any other product does no
 
 is not sufficient when no relevant tests exist. The workflow must first establish that testing has been addressed.
 
-## Test-suite fragmentation
+### Test-suite fragmentation
 
 Automatically creating a new test file for every change without locating the authoritative existing verification produces duplication and inconsistent behavioural ownership.
 
-## Symptom-fix debugging
+### Symptom-fix debugging
 
 A patch that removes a failure does not by itself prove the root cause. Non-trivial fixes should be supported by causal explanation and regression evidence.
 
-## Local-diff blindness
+### Local-diff blindness
 
 Testing only the edited function ignores downstream consumers, observers, middleware, shared contracts, and integration behaviour.
 
-## Deploy-and-hope
+### Deploy-and-hope
 
 Production deployment without defined healthy signals, failure signals, and rollback criteria is incomplete verification.
 
 ---
 
-# 33. DevGenie Testing Principles
+## 33. DevGenie Testing Principles
 
 The doctrine can be condensed into the following principles.
 
-## T1 — Testing starts with intent
+### T1 — Testing starts with intent
 
 If we do not know what correct behaviour means, execution cannot prove correctness.
 
-## T2 — Every important claim requires evidence
+### T2 — Every important claim requires evidence
 
 Assertions about quality should be backed by reproducible engineering evidence.
 
-## T3 — Verification and validation are different
+### T3 — Verification and validation are different
 
 We must prove both that the system was built correctly and that the correct system was built.
 
-## T4 — Test design matters more than test volume
+### T4 — Test design matters more than test volume
 
 A small number of carefully chosen tests may provide more assurance than thousands of mechanically generated tests.
 
-## T5 — Failure paths are first-class
+### T5 — Failure paths are first-class
 
 We test how systems fail, recover, reject, retry, and degrade — not merely how they succeed.
 
-## T6 — Independence increases assurance
+### T6 — Independence increases assurance
 
 The same reasoning process should not be the only authority for implementation, testing, review, and approval.
 
-## T7 — Coverage has multiple dimensions
+### T7 — Coverage has multiple dimensions
 
 Code coverage alone is not sufficient. Requirement, scenario, interface, and risk coverage matter.
 
-## T8 — Tests themselves must be tested
+### T8 — Tests themselves must be tested
 
 Where assurance warrants it, mutation, fault injection, review, and other techniques should demonstrate that tests can detect defects.
 
-## T9 — External tools provide evidence, not truth
+### T9 — External tools provide evidence, not truth
 
 Tools strengthen the testing system. They do not replace engineering judgement.
 
-## T10 — Testing is proportional to consequence
+### T10 — Testing is proportional to consequence
 
 Assurance effort should scale with the impact and likelihood of failure.
 
-## T11 — Defects improve the system
+### T11 — Defects improve the system
 
 A defect should produce learning, regression protection, and where useful, methodology improvement.
 
-## T12 — Release is an evidence-based decision
+### T12 — Release is an evidence-based decision
 
 A release should be explainable in terms of satisfied criteria, available evidence, and explicitly accepted exceptions.
 
 ---
 
-## T13 — Testing must be explicitly addressed
+### T13 — Testing must be explicitly addressed
 
 Every material change must establish what verification evidence is required. “No tests” is a reasoned conclusion, not an omission.
 
-## T14 — A fix is not proof of a cause
+### T14 — A fix is not proof of a cause
 
 For non-trivial defects, root-cause claims should survive causal tracing, assumption audit, and an independent prediction.
 
 ---
 
-# 34. Relationship to the DevGenie Product
+## 34. Relationship to the DevGenie Product
 
 The methodology must exist independently of the product.
 
@@ -1397,7 +1410,7 @@ It should encode good engineering discipline into an AI-native software delivery
 
 ---
 
-# 35. Product Capabilities Implied by the Doctrine
+## 35. Product Capabilities Implied by the Doctrine
 
 The doctrine suggests future DevGenie capabilities such as:
 
@@ -1430,27 +1443,27 @@ These are product consequences of the doctrine, not substitutes for it.
 
 ---
 
-# 36. Version 2 Hard Rules
+## 36. Version 2 Hard Rules
 
 Version 2 introduces five explicit operational rules that complement the original doctrine.
 
-## V2-1 — Testing Addressed
+### V2-1 — Testing Addressed
 
 Every material change must explicitly establish its verification obligation. For behaviour-bearing work, material test scenarios are identified during planning. A pipeline cannot pass simply because no relevant tests exist.
 
-## V2-2 — Existing Test Ownership
+### V2-2 — Existing Test Ownership
 
 Before adding new tests, locate and strengthen the authoritative existing verification where appropriate.
 
-## V2-3 — Change-Impact Verification
+### V2-3 — Change-Impact Verification
 
 Verification must consider the blast radius beyond the edited lines, including consumers, callbacks, middleware, interfaces, persistence, security boundaries, and operational dependencies.
 
-## V2-4 — Causal Debugging
+### V2-4 — Causal Debugging
 
 For non-trivial defects, reproduce the issue, trace the causal chain, audit assumptions, make and verify an independent prediction, then fix the root cause and protect it with regression evidence.
 
-## V2-5 — Operational Validation Contract
+### V2-5 — Operational Validation Contract
 
 Every production-affecting release must identify healthy signals, failure signals, and rollback or remediation criteria.
 
@@ -1460,7 +1473,7 @@ They make it harder for sound testing doctrine to be lost during implementation.
 
 ---
 
-# 37. Final Position
+## 37. Final Position
 
 The speed of AI code generation must not become an excuse for reducing software engineering discipline.
 
