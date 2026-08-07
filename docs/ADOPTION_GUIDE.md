@@ -14,7 +14,9 @@ SmartTest is DevGenie's portable testing discipline for AI-assisted development.
 
 Do not adopt every artefact at once. A team can begin with one skill and one template in an existing pull-request workflow.
 
-## Ten-minute trial
+## A bounded trial
+
+After installation, the first planning workflow can take only a few minutes for a small, clear requirement. The complete sequence below continues as the change is implemented and reviewed; it is not a promise that cold setup, implementation and assurance all fit into ten minutes.
 
 1. Pick a real, bounded change that has an acceptance criterion.
 2. Give your coding agent repository access.
